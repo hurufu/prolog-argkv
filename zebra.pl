@@ -1,4 +1,4 @@
-:- use_module(main).
+:- use_module(argkv).
 
 /*
   There are five consecutive houses, each of a different
@@ -34,7 +34,7 @@ argkv:argkv_def(house/1, [color,nation,pet,drink,car]).
 house(Street, Properties) :- member(house(Properties), Street).
 
 zebra(Owns_zebra, Drinks_water) :-
-    length(Street, 5)
+    length(Street, 5),
     house(Street, [nation-Owns_zebra, pet-zebra]),
     house(Street, [nation-Drinks_water, drink-water]),
     house(Street, [nation-englishman, color-red]),

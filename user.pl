@@ -1,4 +1,4 @@
-:- use_module(main).
+:- use_module(argkv).
 :- use_module(library(format)).
 
 :- multifile([argkv:argkv_def/2]).
@@ -21,6 +21,6 @@ t(G) :-
     X = [drink-water,drink-_],
     house(X, 321),
     G = house(X, 122),
-    argkv_call(G),
+    G,
     call(house([pet-snake]), 120),
     call(house, [pet-rat], 121).
