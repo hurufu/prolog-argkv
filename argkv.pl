@@ -65,7 +65,8 @@ argkv_sublist([H|T], X) :-
 %
 ugoal_expansion(G, argkv_apply_pairs(X, Keys, Pairs)) :-
     functor(G, Functor, Arity),
-    argkv_def(Functor/Arity, Keys),
+    findall(K, argkv_def(Functor/Arity, K), [H|T]),
+    append([H|T], Keys),
     G =.. [Functor,Pairs|Rest],
     X =.. [Functor|Rest].
 ugoal_expansion(argkv_apply_pairs(Goal, Keys, Pairs), apply(Goal, Values)) :-
